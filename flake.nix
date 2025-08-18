@@ -45,6 +45,6 @@
     in (builtins.listToAttrs (map (file: {
       name = name_from_nxi_file file;
       value = make_config file;
-    )} user_dirs));
+    }) user_dirs));
   };
 }

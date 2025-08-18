@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports =
     [
@@ -48,12 +48,34 @@
     vim
     git
     home-manager
+    # needed to view graphics card bus information
+    lshw
   ];
-
-  environment.variables = {
-    NIXOS_CONFIG = "$HOME/nixos/configuration.nix";
-  };
   
+  # Enable OpenGL
+  hardware.graphics = {
+    enable = true;
+  };
+
+  # Load the nvidia driver for Xorg and Wayland
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia = {
+    # Modesetting is required (although the nixos wiki fails to elaborate why)
+    modesetting.enable = true;
+
+    # Can be enabled if issues occur when loading programs after sleep.
+    # Experimental power management dumps the vram to /tmp
+    powerManagement.enable = false;
+    
+    # Fine-grained power management. Turns off GPU when not in use.
+    powerManagement.finegrained = true;
+    
+    # use Nvidia's open source drivers. (As of july 2024, 
+    # all nvidia kernels are open source)
+    open = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
