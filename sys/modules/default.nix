@@ -1,5 +1,5 @@
-{ local_lib, ... }:
+{ localLib, ... }:
 
 {
-  imports = local_lib.get_all_subdirs ./.;
+  imports = localLib.getAllSubdirs ./.;
 }

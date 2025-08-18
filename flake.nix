@@ -3,7 +3,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/unstable";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -11,40 +11,40 @@
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: 
   let
     lib = nixpkgs.lib;
-    pkgs = import nixpkgs { inherit system; };
-    local_lib = (import ./lib {inherit lib; });
-    name_from_nix_file = file: lib.strings.removeSuffix ".nix" (baseNameOf file);
+    makePkgs = system: (import nixpkgs { inherit system; });
+    localLib = (import ./lib {inherit lib; });
+    nameFromNixFile = file: lib.strings.removeSuffix ".nix" (baseNameOf file);
   in {
-    nixox_configurations = let 
-      machines = local_lib.get_all_subdirs ./sys/machines;
-      make_config = dir:
+    nixosConfigurations = let 
+      machines = localLib.getAllSubdirs ./sys/machines;
+      makeConfig = dir:
         (let
-          user_data = import dir;
-          system = user_data.system;
-          pkgs = system;
+          userData = import dir;
+          system = userData.system;
+          pkgs = makePkgs system;
         in lib.nixosSystem {
           inherit pkgs system;
-          modues = [user_data.module];
-          special_args = { inherit local_lib; };
+          modules = [userData.module];
+          specialArgs = { inherit localLib; };
         });
     in (builtins.listToAttrs (map (dir: {
       name = builtins.baseNameOf dir;
-      value = make_config dir;
+      value = makeConfig dir;
     }) machines));
-    home_configurations = let
-      user_dirs = local_lib.get_all_subdirs ./home/users;
-      make_config = dir:
+    homeConfigurations = let
+      userDirs = localLib.getAllSubdirs ./home/users;
+      makeConfig = dir:
         (let
-          user_data = import dir;
-          pkgs = user_data.system;
+          userData = import dir;
+          pkgs = makePkgs userData.system;
         in home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [user_data.module];
-          extra_special_args = { inherit local_lib; };
+          modules = [userData.module];
+          extraSpecialArgs = { inherit localLib; };
         });
     in (builtins.listToAttrs (map (file: {
-      name = name_from_nxi_file file;
-      value = make_config file;
-    }) user_dirs));
+      name = nameFromNixFile file;
+      value = makeConfig file;
+    }) userDirs));
   };
 }
