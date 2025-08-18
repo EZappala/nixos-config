@@ -11,7 +11,11 @@
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: 
   let
     lib = nixpkgs.lib;
-    makePkgs = system: (import nixpkgs { inherit system; });
+    makePkgs = system: (import nixpkgs { inherit system; 
+      config = {
+        allowUnfree = true;
+      };
+    });
     localLib = (import ./lib {inherit lib; });
     nameFromNixFile = file: lib.strings.removeSuffix ".nix" (baseNameOf file);
   in {

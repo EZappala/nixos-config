@@ -40,8 +40,6 @@
 
   services.getty.autologinUser = "ellie";
 
-  nixpkgs.config.allowUnfree = true;
-
   # Only instantiating packages that are *required* to perform
   # initial setup. All other setup moved to home-manager.
   environment.systemPackages = with pkgs; [
@@ -68,7 +66,8 @@
     powerManagement.enable = false;
     
     # Fine-grained power management. Turns off GPU when not in use.
-    powerManagement.finegrained = true;
+    # TODO: Need to enable Offload first, then we can turn this back on
+    powerManagement.finegrained = false;
     
     # use Nvidia's open source drivers. (As of july 2024, 
     # all nvidia kernels are open source)
