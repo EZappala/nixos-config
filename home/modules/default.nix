@@ -1,0 +1,5 @@
+{ localLib, ... }
+
+{
+  imports = localLib.getAllSubdirs ./.;
+}

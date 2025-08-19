@@ -43,7 +43,7 @@
   # Only instantiating packages that are *required* to perform
   # initial setup. All other setup moved to home-manager.
   environment.systemPackages = with pkgs; [
-    vim
+    neovim
     git
     home-manager
     # needed to view graphics card bus information
