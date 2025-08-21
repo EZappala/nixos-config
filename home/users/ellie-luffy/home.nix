@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, target, inputs, ... }:
 {
   imports = [ ../../modules ];
   home.username = "ellie";
@@ -16,5 +16,9 @@
     eza
     fzf
     bat
-  ]; 
+
+    inputs.zen-browser.packages."${target}".default
+  ];
+
+  programs.home-manager.enable = true;
 }
