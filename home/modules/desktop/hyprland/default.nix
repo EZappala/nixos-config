@@ -17,6 +17,8 @@
 	"$mod, M, exit"
       ];
 
+      monitor = [", hightres, auto, 1"];
+
       input = {
         kb_layout = "us";
 	follow_mouse = 1;
