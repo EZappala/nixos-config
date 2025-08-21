@@ -1,5 +1,6 @@
-{ localLib, ... }:
-
-{
-  imports = localLib.getAllSubdirs ./.;
+{ ... }: {
+  imports = [ 
+    ./base 
+    ./desktop
+  ];
 }
