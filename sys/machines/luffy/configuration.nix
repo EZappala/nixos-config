@@ -34,7 +34,7 @@
   users.users.ellie = {
     isNormalUser = true;
     description = "Eloise Zappala";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "seat" ];
     packages = with pkgs; [];
   };
 

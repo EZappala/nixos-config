@@ -1,6 +1,6 @@
-{ ... }: {
+{config, ... }: {
   imports = [
+    ./greetd
     ./hypr-global
-    ./emptty
   ];
 }
