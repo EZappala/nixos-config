@@ -1,4 +1,8 @@
-{ localLib, ... }:
+{ ... }:
 {
-  imports = localLib.getAllSubdirs ./.;
+  imports = [
+    ./ghostty
+    ./git
+    ./neovim 
+  ];
 }

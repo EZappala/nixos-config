@@ -1,4 +1,3 @@
-{
-  system = "x86_64-linux";
-  module = ./configuration.nix;
+{...}: {
+  imports = [ ./configuration.nix ]
 }

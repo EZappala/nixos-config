@@ -1,8 +1,8 @@
-{ config, pkgs, ... }
+{ config, pkgs, ... }:
 {
   programs.git = {
     enable = true;
     userName = "Eloise Zappala";
-    userEmail = "eloise.zappala@proton.me"
+    userEmail = "eloise.zappala@proton.me";
   };
 }
