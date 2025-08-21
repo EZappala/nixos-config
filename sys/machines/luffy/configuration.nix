@@ -44,6 +44,7 @@
   # initial setup. All other setup moved to home-manager.
   environment.systemPackages = with pkgs; [
     vim
+    lynx
     home-manager
     # needed to view graphics card bus information
     lshw

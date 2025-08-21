@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
     ./hypr-global
-    ./lemurs
+    ./emptty
   ];
 }
