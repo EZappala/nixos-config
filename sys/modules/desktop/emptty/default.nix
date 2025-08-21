@@ -1,6 +1,7 @@
-{config, ...}:
+{...}:
 {
-  services.xserver.displayManager.emptty = {
-    enable = true;
-  };
+  imports = [
+    ./mod.nix
+    ./config.nix
+  ];
 }
