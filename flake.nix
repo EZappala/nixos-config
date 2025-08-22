@@ -10,10 +10,6 @@
     	url = "github:0xc000022070/zen-browser-flake";
 	    inputs.nixpkgs.follows = "nixpkgs";
     };
-    fenix = {
-      url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, zen-browser, fenix, ... }:
@@ -33,19 +29,6 @@
 	          home-manager.extraSpecialArgs = { inherit inputs; inherit target; };
 	          home-manager.backupFileExtension = "bak";
           }
-          ({ pkgs, ... }: {
-          nixpkgs.overlays = [ fenix.overlays.default ];
-          environment.systemPackages = with pkgs; [
-            (fenix.complete.withComponents [
-              "cargo"
-              "clippy"
-              "rust-src"
-              "rustc"
-              "rustfmt"
-            ])
-            rust-analyzer-nightly
-          ];
-        })
         ];
       };
     };
