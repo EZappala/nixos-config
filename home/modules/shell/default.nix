@@ -4,6 +4,6 @@
     ./ghostty
     ./git
     ./neovim 
-    ./rust.nix
+    ./rust
   ];
 }
