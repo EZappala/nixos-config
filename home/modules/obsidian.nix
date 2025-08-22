@@ -1,3 +1,3 @@
-{
+{...}: {
   programs.obsidian.enable = true;
 }
