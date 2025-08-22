@@ -16,6 +16,7 @@
     eza
     fzf
     bat
+    gh
 
     inputs.zen-browser.packages."${target}".default
   ];

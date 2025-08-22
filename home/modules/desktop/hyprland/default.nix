@@ -14,7 +14,16 @@
 	"$mod, T, exec, ghostty"
 	"$mod, F12, exec, reboot"
 	"$mod, Q, killactive"
+	"$mod SHIFT, Q, forcekillactive"
 	"$mod, M, exit"
+	"$mod, J, movefocus, d"
+	"$mod, K, movefocus, u"
+	"$mod, H, movefocus, l"
+	"$mod, L, movefocus, r"
+	"$mod SHIFT, J, movewindow, d"
+	"$mod SHIFT, K, movewindow, u"
+	"$mod SHIFT, H, movewindow, l"
+	"$mod SHIFT, L, movewindow, r"
       ];
 
       monitor = [", highres, auto, 1"];
@@ -27,6 +36,10 @@
 	  natural_scroll = true;
 	  tap-to-click = false;
 	};
+      };
+
+      cursor = {
+        hide_on_key_press = true;
       };
 
       gestures = { 
