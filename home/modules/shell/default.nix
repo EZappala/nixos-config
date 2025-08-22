@@ -4,6 +4,6 @@
     ./ghostty
     ./git
     ./neovim 
-    ./node
+    ./node.nix
   ];
 }
