@@ -30,12 +30,13 @@
 
       input = {
         kb_layout = "us";
-	follow_mouse = 1;
-	sensitivity = 0;
-	touchpad = { 
-	  natural_scroll = true;
-	  tap-to-click = false;
-	};
+        kb_options = caps:escape;
+	      follow_mouse = 1;
+	      sensitivity = 0;
+	      touchpad = { 
+	        natural_scroll = true;
+	        tap-to-click = false;
+	      };
       };
 
       cursor = {
@@ -44,7 +45,7 @@
 
       gestures = { 
         workspace_swipe = true;
-	workspace_swipe_fingers = 4;
+	      workspace_swipe_fingers = 4;
       };
     };
   };
