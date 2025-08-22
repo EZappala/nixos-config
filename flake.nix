@@ -26,8 +26,8 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users."ellie" = import ./home/users/ellie-luffy;
-	    home-manager.extraSpecialArgs = { inherit inputs; inherit target; };
-	    home-manager.backupFileExtension = "bak";
+	          home-manager.extraSpecialArgs = { inherit inputs; inherit target; };
+	          home-manager.backupFileExtension = "bak";
           }
         ];
       };

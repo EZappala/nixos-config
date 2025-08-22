@@ -5,6 +5,9 @@
   home.homeDirectory = "/home/ellie";
   home.stateVersion = "25.11"; # DO NOT CHANGE
 
+  # system.keyboard.enable = true; 
+  # system.keyboard.remapCapsLockToEscape = true;
+
   xresources.properties = {
     "Xcursor.size" = 16;
     "Xft.dpi" = 172;

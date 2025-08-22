@@ -38,8 +38,6 @@
     packages = with pkgs; [];
   };
 
-  services.getty.autologinUser = "ellie";
-
   # Only instantiating packages that are *required* to perform
   # initial setup. All other setup moved to home-manager.
   environment.systemPackages = with pkgs; [
