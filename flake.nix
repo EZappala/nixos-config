@@ -24,7 +24,7 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, zen-browser, fenix, hyprshell, ghostty, ... }:
   let 
-    target = "x86_64-linux";
+    target = "x86_64-linux"; 
   in {
     nixosConfigurations = { 
       luffy = nixpkgs.lib.nixosSystem {

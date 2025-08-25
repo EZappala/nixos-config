@@ -1,6 +1,7 @@
 { ... }:
 {
   programs.ghostty = {
+    enable = true;
     settings = {
       keybind = [
         "ctrl+shift+h=previous_tab"
