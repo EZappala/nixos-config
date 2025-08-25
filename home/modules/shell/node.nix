@@ -1,3 +1,0 @@
-{...}}: {
-  programs.enable.nodejs = true
-}

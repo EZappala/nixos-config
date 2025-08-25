@@ -10,9 +10,13 @@
     	url = "github:0xc000022070/zen-browser-flake";
 	    inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprshell = {
+      url = "github:H3rmt/hyprshell?ref=hyprshell-release";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, zen-browser, fenix, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, zen-browser, fenix, hyprshell, ... }:
   let 
     target = "x86_64-linux";
   in {

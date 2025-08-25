@@ -20,8 +20,22 @@
     fzf
     bat
     gh
+    unzip
+    bluetui
 
     inputs.zen-browser.packages."${target}".default
+
+    # programming languages
+    # TODO: Use nix develop, but requires extra setup
+    nodejs
+    go
+    julia
+    (python3.withPackages (python-pkgs: with python-pkgs; [
+      pip
+    ]))
+    lua51Packages.lua
+    lua51Packages.luarocks
+    rustup
   ];
 
   programs.home-manager.enable = true;
