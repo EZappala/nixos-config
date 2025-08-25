@@ -24,7 +24,7 @@
     bluetui
 
     inputs.zen-browser.packages."${target}".default
-    inputs.ghostty.packages.${target}.default
+    inputs.ghostty.packages."${target}".default
 
     # programming languages
     # TODO: Use nix develop, but requires extra setup

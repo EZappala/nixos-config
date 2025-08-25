@@ -1,7 +1,7 @@
-{ inputs, ... }:
+{ ... }:
 {
   imports = [
-    (import ./ghostty.nix {inherit inputs;})
+    ./ghostty.nix
     ./git
     ./neovim 
   ];

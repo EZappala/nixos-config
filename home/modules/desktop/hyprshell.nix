@@ -2,6 +2,7 @@
   imports = [
     inputs.hyprshell.homeModules.hyprshell
   ];
+
   programs.hyprshell = {
     enable = true;
     systemd.args = "-v";
