@@ -6,17 +6,23 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     zen-browser = {
     	url = "github:0xc000022070/zen-browser-flake";
 	    inputs.nixpkgs.follows = "nixpkgs";
     };
+
     hyprshell = {
-      url = "github:H3rmt/hyprshell?ref=hyprshell-release";
+      url = "github:H3rmt/hyprshell";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, zen-browser, fenix, hyprshell, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, zen-browser, fenix, hyprshell, ghostty, ... }:
   let 
     target = "x86_64-linux";
   in {

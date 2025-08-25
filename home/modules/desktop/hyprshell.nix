@@ -9,27 +9,18 @@
       windows = {
         overview = {
           key = "super_l";
-          # mod = "super";
+          modifier = "super";
           launcher = {
             max_items = 6;
-            plugins.websearch = {
-                enable = true;
-                engines = [
-                  {
-                      name = "Google";
-                      url = "https://google.com/?q=%s";
-                      key = "g";
-                  }
-                  {
-                      name = "Wikipedia";
-                      url = "https://en.wikipedia.org/wiki/Special:Search?search={}";
-                      key = "w";
-                  }
-                ];
-            };
+            plugins.websearch.enable = false;
+            plugins.terminal.enable = false;
+            plugins.shell.enable = false;
           };
         };
-        switch.enable = false;
+        switch = {
+          enable = false;
+          show_workspaces = false;
+        };
       };
     };
   };

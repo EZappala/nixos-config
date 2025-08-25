@@ -136,7 +136,6 @@
       },
       "original": {
         "owner": "H3rmt",
-        "ref": "hyprshell-release",
         "repo": "hyprshell",
         "type": "github"
       }
