@@ -1,6 +1,4 @@
-{ config, ... }: let
-  nvimPath = "${config.home.homeDirectory}/.config/nvim";
-in {
+{ config, ... }: {
   programs.neovim = {
     enable = true;
   };

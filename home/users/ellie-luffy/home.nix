@@ -23,6 +23,7 @@
     gh
     unzip
     bluetui
+    typst
 
     inputs.zen-browser.packages."${target}".default
     # inputs.ghostty.packages."${target}".default
@@ -35,9 +36,14 @@
     (python3.withPackages (python-pkgs: with python-pkgs; [
       pip
     ]))
+    # TODO: For some reason you can't use luajit and lua51? luajit comes with lua52, but nvim needs lua51 for luarocks. Even tho luajit has a luarocks package???
     lua51Packages.lua
     lua51Packages.luarocks
     rustup
+
+    #lib
+    x264
+    ffmpeg
   ];
 
   programs.home-manager.enable = true;

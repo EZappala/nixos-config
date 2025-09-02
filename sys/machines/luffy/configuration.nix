@@ -42,13 +42,39 @@
   # initial setup. All other setup moved to home-manager.
   environment.systemPackages = with pkgs; [
     vim
-    lynx
     home-manager
+    pavucontrol
     # needed to view graphics card bus information
     lshw
   ];
 
   hardware.bluetooth.enable = true;
+
+  # Allow pipewire to use kernel's realtime scheduler
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+
+    # disable bell on warning
+    extraConfig = {
+      pipewire."99-silent-bell.conf" = {
+        "context.properties" = {
+          "module.x11.bell" = false;
+        };
+      };
+    };
+  };
+
+  # Enable using the buttons on a bluetooth headset to control audio player
+  systemd.user.services.mpris-proxy = {
+    description = "Mpris proxy";
+    after = [ "network.target" "sound.target" ];
+    wantedBy = [ "default.target" ];
+    serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
+  };
   
   # Enable OpenGL
   hardware.graphics.enable = true;

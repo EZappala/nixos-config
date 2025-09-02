@@ -6,8 +6,8 @@
       keybind = [
         "ctrl+shift+h=previous_tab"
         "ctrl+shift+l=next_tab"
-        "space>backslash=new_split:right"
-        "space>shift+backslash=new_split:down"
+        "ctrl+backslash=new_split:right"
+        "ctrl+shift+backslash=new_split:down"
         "ctrl+shift+equal=equalize_splits"
       ];
       theme = "rose-pine";
