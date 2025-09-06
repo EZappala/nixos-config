@@ -42,8 +42,9 @@
     rustup
 
     #lib
-    x264
-    ffmpeg
+    openh264
+    ffmpeg-full
+    vivaldi-ffmpeg-codecs
   ];
 
   programs.home-manager.enable = true;
